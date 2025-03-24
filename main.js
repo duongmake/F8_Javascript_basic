@@ -3,24 +3,39 @@
 // 1. new Promise
 // 2. Executor
 
+// 1. Pending
+// 2. Fulfilled
+// 3. Rejected
+
 var promise = new Promise(
     // Executor
     function(resolve, reject) {
         // Logic
         // Thành công: resolve()
         // Thất bại: reject()
+
+        // Fake call API
+        // resolve([
+        //     {
+        //         id: 1,
+        //         name: 'Javascript'
+        //     }
+        // ]);
+
+        reject('Co loi!');
+
     }
 );
 
 promise
-    .then(function() {
-
+    .then(function(courses) { // resolve
+        console.log(courses);
     })
-    .catch(function() {
-        
+    .catch(function(error) { // reject
+        console.log(error);
     })
     .finally(function() {
-        
+        console.log('Xong!'); // resolve hoac reject
     });
 
 
@@ -28,18 +43,18 @@ promise
 // Callback hell
 // Pyramid of doom
 
-setTimeout(function() {
-    console.log(1); // viec 1
-    setTimeout(function() {
-        console.log(2); // viec 2
-        setTimeout(function() {
-            console.log(3); // viec 3
-            setTimeout(function() {
-                console.log(4); // viec 4
-            }, 1000);
-        }, 1000);
-    }, 1000);
-}, 1000);
+// setTimeout(function() {
+//     console.log(1); // viec 1
+//     setTimeout(function() {
+//         console.log(2); // viec 2
+//         setTimeout(function() {
+//             console.log(3); // viec 3
+//             setTimeout(function() {
+//                 console.log(4); // viec 4
+//             }, 1000);
+//         }, 1000);
+//     }, 1000);
+// }, 1000);
 
 
 
