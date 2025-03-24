@@ -1,5 +1,57 @@
 // Promise
 
+// Chain
+
+function sleep(ms) {
+    return new Promise(function(resolve) {
+        setTimeout(resolve, ms);
+    })
+};
+
+sleep(1000)
+    .then(function() {
+        console.log(1);
+        return sleep(1000);
+    })
+    .then(function() {
+        console.log(2);
+        return sleep(1000);
+    })
+    .then(function() {
+        console.log(3);
+        return sleep(1000);
+    })
+
+
+// var promise = new Promise(
+//     function(resolve, reject) {
+
+//         resolve();
+
+//     }
+// );
+
+// promise
+//     .then(function() {
+//         return new Promise(function(resolve) {
+//             setTimeout(function() {
+//                 resolve([1, 2, 3]);
+//             }, 3000);
+//         });
+//     })
+//     .then(function(data) {
+//         console.log(data);
+//     })
+//     .catch(function(error) {
+//         console.log(error);
+//     })
+//     .finally(function() {
+//         console.log('Xong!');
+//     });
+
+
+
+
 // 1. new Promise
 // 2. Executor
 
@@ -7,36 +59,36 @@
 // 2. Fulfilled
 // 3. Rejected
 
-var promise = new Promise(
-    // Executor
-    function(resolve, reject) {
-        // Logic
-        // Thành công: resolve()
-        // Thất bại: reject()
+// var promise = new Promise(
+//     // Executor
+//     function(resolve, reject) {
+//         // Logic
+//         // Thành công: resolve()
+//         // Thất bại: reject()
 
-        // Fake call API
-        // resolve([
-        //     {
-        //         id: 1,
-        //         name: 'Javascript'
-        //     }
-        // ]);
+//         // Fake call API
+//         // resolve([
+//         //     {
+//         //         id: 1,
+//         //         name: 'Javascript'
+//         //     }
+//         // ]);
 
-        reject('Co loi!');
+//         reject('Co loi!');
 
-    }
-);
+//     }
+// );
 
-promise
-    .then(function(courses) { // resolve
-        console.log(courses);
-    })
-    .catch(function(error) { // reject
-        console.log(error);
-    })
-    .finally(function() {
-        console.log('Xong!'); // resolve hoac reject
-    });
+// promise
+//     .then(function(courses) { // resolve
+//         console.log(courses);
+//     })
+//     .catch(function(error) { // reject
+//         console.log(error);
+//     })
+//     .finally(function() {
+//         console.log('Xong!'); // resolve hoac reject
+//     });
 
 
 
