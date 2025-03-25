@@ -1,26 +1,231 @@
+// Postman - REST API
+
+// - JSON server: API Server (Fake) / Mock API
+
+
+
+
+
+
+
+
+
+
+// JSON server
+
+// var courseApi = 'http://localhost:3000/courses';
+
+// fetch(courseApi)
+//     .then(function(response) {
+//         return response.json();
+//     })
+//     .then(function(courses) {
+//         console.log(courses);
+//     });
+
+
+
+
+
+
+
+
+
+
+// Fetch
+
+//Backend (OK) -> API (URL) -> Fetch -> JSON/XML
+// -> JSON.parse -> Javascript types
+// -> Render ra giao diện với HTML
+
+// var postAPI = 'https://jsonplaceholder.typicode.com/posts';
+
+// fetch(postAPI)
+//     .then(function(response) {
+//         return response.json();
+//         // JSON.parse: JSON -> Javascript types
+//     })
+//     .then(function(posts) {
+//         var htmls = posts.map(function(post) {
+//             return `<li>
+//                 <h2>${post.title}</h2>
+//                 <p>${post.body}</p>
+//             </li>`;
+//         });
+
+//         var html = htmls.join('');
+//         document.getElementById('post-block').innerHTML = html;
+//     })
+//     .catch(function() {
+//         console.log('Có lỗi!');
+//     });
+
+
+
+
+
+
+
+
 // Promise
+
+// var users = [
+//     {
+//         id: 1,
+//         name: 'Tien Duong'
+//     },
+//     {
+//         id: 2,
+//         name: 'Le Xuan'
+//     },
+//     {
+//         id: 3,
+//         name: 'Duong Dung'
+//     }
+// ];
+
+// var comments = [
+//     {
+//         id: 1,
+//         user_id: 1,
+//         content: 'Anh Son chua ra video :('
+//     },
+//     {
+//         id: 2,
+//         user_id: 2,
+//         content: 'Vua ra xong em oi!'
+//     }
+// ];
+
+// 1. Lấy comments
+// 2. Từ comments lấy ra user_id,
+// từ user_id lấy ra user tương ứng
+
+// Fake API
+
+// function getComments() {
+//     return new Promise(function(resolve) {
+//         setTimeout(function() {
+//             resolve(comments);
+//         });
+//     });
+// }
+
+// function getUsersByIds(userIds) {
+//     return new Promise(function(resolve) {
+//         var result = users.filter(function(user) {
+//             return userIds.includes(user.id);
+//         });
+//         setTimeout(function() {
+//             resolve(result);
+//         }, 1000);
+//     }, 1000);
+// };
+
+// getComments()
+//     .then(function(comments) {
+//         var userIds = comments.map(function(comment) {
+//             return comment.user_id;
+//         });
+
+//         return getUsersByIds(userIds)
+//             .then(function(users) {
+//                 return {
+//                     users: users,
+//                     comments: comments
+//                 };
+//             });
+//     })
+//     .then(function(data) {
+//         var commentBlock = document.getElementById('comment-block');
+
+//         var html = '';
+
+//         data.comments.forEach(function(comment) {
+//             var user = data.users.find(function(user) {
+//                 return user.id === comment.user_id;
+//             });
+
+//             html += `${user.name}: ${comment.content} <br>`;
+
+//         });
+
+//         commentBlock.innerHTML = html;
+
+
+//     });
+
+
+
+
+// 1. Promise.resolve
+// 2. Promise.reject
+// 3. Promise.all
+
+// Thư viện: output luôn luôn là
+// một promise
+
+// var promise1 = new Promise(function(resolve) {
+//     setTimeout(function() {
+//         resolve([1]);
+//     }, 2000)
+// });
+
+// var promise2 = new Promise(function(resolve) {
+//     setTimeout(function() {
+//         resolve([2, 3]);
+//     }, 5000)
+// });
+
+// Promise.all([promise1, promise2])
+//     .then(function(result) {
+//         var result1 = result[0];
+//         var result2 = result[1];
+
+//         console.log(result1.concat(result2));
+
+//     })
+
+
+
+// var promise = Promise.resolve('Success!');
+
+// promise
+//     .then(function(result) {
+//         console.log('result: ', result);
+//     })
+//     .catch(function(err) {
+//         console.log('error: ', err);
+//     });
+
+
 
 // Chain
 
-function sleep(ms) {
-    return new Promise(function(resolve) {
-        setTimeout(resolve, ms);
-    })
-};
+// function sleep(ms) {
+//     return new Promise(function(resolve) {
+//         setTimeout(resolve, ms);
+//     })
+// };
 
-sleep(1000)
-    .then(function() {
-        console.log(1);
-        return sleep(1000);
-    })
-    .then(function() {
-        console.log(2);
-        return sleep(1000);
-    })
-    .then(function() {
-        console.log(3);
-        return sleep(1000);
-    })
+// sleep(1000)
+//     .then(function() {
+//         console.log(1);
+//         return sleep(1000);
+//     })
+//     .then(function() {
+//         console.log(2);
+//         return new Promise(function(resolve, reject) {
+//             reject();
+//         });
+//     })
+//     .then(function() {
+//         console.log(3);
+//         return sleep(1000);
+//     })
+//     .catch(function() {
+//         console.log('Error!');
+//     })
 
 
 // var promise = new Promise(
