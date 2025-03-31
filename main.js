@@ -1,10 +1,266 @@
+// Classes
+
+// function Course(name, price) {
+//     this.name = name;
+//     this.price = price;
+
+//     this.getName = function() {
+//         return this.name;
+//     }
+
+//     const isSuccess = false;
+// }
+
+class Course {
+    constructor(name, price) {
+        this.name = name;
+        this.price = price;
+    }
+        
+    getName() {
+        return this.name;
+    }
+
+    getPrice() {
+        return this.price;
+    }
+
+    run() {
+        const isSuccess = false;
+
+        if (true) {
+            isSuccess = true;
+        }
+    }
+    
+}
+
+const phpCourse = new Course('PHP', 1000);
+const jsCourse = new Course('Javascript', 1200);
+
+console.log(phpCourse);
+console.log(jsCourse);
+
+
+
+
+
+
+
+
+// Arrow function
+
+// const Course = function(name, price) {
+//     this.name = name;
+//     this.price = price;
+// }
+
+// const jsCourse = new Course('Javascript', 1000);
+
+// console.log(jsCourse);
+
+
+// const course = {
+//     name: 'Javascript basic!',
+//     getName: function() {
+//         return this.name; //context
+//     }
+// }
+
+// console.log(course.getName());
+
+
+// const logger = log => console.log(log);
+
+// logger('Message...');
+
+
+// const sum = (a, b) => ({a: a, b: b});
+
+// console.log(sum(2, 2));
+
+
+// const sum = (a, b) => {
+//     return a + b;
+// }
+// const sum = (a, b) => a + b;
+
+// console.log(sum(2, 2));
+
+
+
+// const logger = function logger(log) {
+//     console.log(log);
+// } 
+// const logger = (log) => {
+//     console.log(log);
+// }
+
+// logger('Message...');
+
+
+
+
+
+
+
+
+
+// Template literals
+
+// const courseName = 'Javascript';
+// const description = `Course name: ${courseName}`;
+
+// console.log(description);
+
+
+// Multi-line String
+// const lines = `Line 1
+// Line 2
+// Line 3`;
+
+// console.log(lines);
+
+
+
+
+
+
+
+
+// Let & Const
+
+// 1. Var / Let, Const: Scope, Hosting
+// 2. Const / Var, Let: Assignment
+
+// Code block: if else, loop, {}, ...
+
+// Code thuần: var
+// Babel: Const, Let
+// - Khi định nghĩa biến và ko gán lại biến đó: Const
+// - Khi cần gán lại giá trị cho biến: Let
+
+// let isSuccess = false;
+
+// if (true) {
+//     isSuccess = true;
+// }
+
+// console.log(isSuccess);
+
+// const a = {
+//     name: 'Javascript'
+// }
+
+// a.name = 'PHP';
+// console.log(a.name);
+
+
+
+// if (true) {
+//     var course = 'javascript basic!';
+// }
+
+// console.log(course);
+
+
+
+
+
+
+
+
+
 // Postman - REST API
 
 // - JSON server: API Server (Fake) / Mock API
+// Thêm/sửa/xóa khóa học với Fetch và REST API
+
+// var courseApi = 'http://localhost:3000/courses';
+
+// function start() {
+//     getCourses(renderCourses);
+
+//     handleCreateForm();
+// }
+
+// start();
 
 
+// // Functions
+// function getCourses(callback) {
+//     fetch(courseApi)
+//         .then(function(response) {
+//             return response.json();
+//         })
+//         .then(callback);
+// }
 
+// function createCourse(data, callback) {
+//     var options = {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(data)
+//     };
+//     fetch(courseApi, options)
+//         .then(function(response) {
+//             response.json();
+//         })
+//         .then(callback);    
+// }
 
+// function handleDeleteCourse(id) {
+//     var options = {
+//         method: 'DELETE',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         }
+//     };
+//     fetch(courseApi + '/' + id, options)
+//         .then(function(response) {
+//             response.json();
+//         })
+//         .then(function() {
+//             var courseItem = document.querySelector('.course-item-' + id);
+//             if (courseItem) {
+//                 courseItem.remove();
+//             }
+//         });
+// }
+
+// function renderCourses(courses) {
+//     var listCoursesBlock = document.querySelector('#list-courses');
+    
+//     var htmls = courses.map(function(course) {
+//         return `<li class="course-item-${course.id}">
+//             <h4>${course.name}</h4>
+//             <p>${course.description}</p>
+//             <button onclick="handleDeleteCourse(${course.id})">Xóa</button>
+//         </li>`;
+//     });
+
+//     listCoursesBlock.innerHTML = htmls.join('');
+
+// }
+
+// function handleCreateForm() {
+//     var createBtn = document.querySelector('#create');
+
+//     createBtn.onclick = function() {
+//         var name = document.querySelector('input[name="name"]').value;
+//         var description = document.querySelector('input[name="description"]').value;
+        
+//         var formData = {
+//             name: name,
+//             description: description
+//         };
+
+//         createCourse(formData);
+
+//     }
+// }
 
 
 
